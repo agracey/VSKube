@@ -10,16 +10,27 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"*"
 	],
 	"main": "./extension.js",
 	"contributes": {
-		"commands": [
+		"viewsContainers": {
+		  "activitybar": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+			  "id": "kube-explorer",
+			  "title": "Kubernetes",
+			  "icon": "resources/kubernetes.svg"
 			}
-		]
+		  ]
+		},
+		"views": {
+			"kube-explorer":[
+				{
+					"id": "namespaces",
+					"name": "Namespaces"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"test": "node ./test/runTest.js"
